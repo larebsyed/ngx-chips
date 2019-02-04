@@ -1000,8 +1000,7 @@ export class TagInputComponent extends TagInputAccessor implements OnInit, After
             const isIMEProcessing = $event.keyCode === 229;
 
             if (hasKeyCode || (hasKey && !isIMEProcessing)) {
-                $event.preventDefault();
-                this.onAddingRequested(false, this.formValue)
+                this.onAddingRequested(false, this.formValue).then(()=>{$event.preventDefault()})
                     .catch(() => {});
             }
         };
